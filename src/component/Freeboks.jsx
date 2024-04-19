@@ -5,6 +5,7 @@ import Slider from "react-slick";
 // import list from "../../public/list.json";
 import axios from "axios";
 import Cards from "./Cards";
+const baseurl = 'https://backend-a01q.onrender.com'
 
 export default function Freeboks() {
 
@@ -14,7 +15,7 @@ useEffect(()=>{
     try {
       
     
-    const res = await axios.get("/book")
+    const res = await axios.get(`${baseurl}/book`)
     
     const data = res.data.filter((d) => d.catagory === "Free");
     console.log(res.data)

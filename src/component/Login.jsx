@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from 'axios';
 import toast from "react-hot-toast";
+const baseurl = 'https://backend-a01q.onrender.com'
 
 
 export default function Login() {
@@ -18,7 +19,7 @@ export default function Login() {
           password:data.password
         }
 
-       await axios.post('/user/login',userinfo).then((res)=>{
+       await axios.post(`${baseurl}/user/login`,userinfo).then((res)=>{
           if(res.data){
             console.log(res.data)
             toast.success('Login succesfully');

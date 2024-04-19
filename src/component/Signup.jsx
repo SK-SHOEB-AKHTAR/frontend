@@ -4,6 +4,7 @@ import Login from './Login'
 import { useForm } from "react-hook-form"
 import axios from 'axios';
 import toast from 'react-hot-toast';
+const baseurl = 'https://backend-a01q.onrender.com'
 
 export default function Signup() {
   const location = useLocation()
@@ -22,7 +23,7 @@ export default function Signup() {
           password:data.password
         }
 
-       await axios.post('/user/signup',userinfo)
+       await axios.post(`${baseurl}/user/signup`,userinfo)
        .then((res)=>{
           if(res.data){
              toast.success('signup succesfully')

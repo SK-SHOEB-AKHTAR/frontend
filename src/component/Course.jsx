@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Cards from './Cards';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
+const baseurl = 'https://backend-a01q.onrender.com'
 
 export default function Course() {
   const [book,setBook]= useState([]);
@@ -10,7 +11,7 @@ export default function Course() {
     const getbook = async()=>{
      try {
       
-      const res = await axios.get("/book")
+      const res = await axios.get(`${baseurl}/book`)
       console.log(res.data)
       setBook(res.data)
      } catch (error) {
